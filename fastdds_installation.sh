@@ -1,5 +1,4 @@
-# Shell script for installing PX - ROS 2 bridge
-# Works with: foxy, eloquent
+# Shell script for installing FastDDS
 # ------------------------------------
 
 
