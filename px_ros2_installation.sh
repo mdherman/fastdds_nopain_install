@@ -13,8 +13,8 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 git clone https://github.com/eProsima/foonathan_memory_vendor.git
 cd foonathan_memory_vendor
 mkdir build & cd build
-sudo cmake ..
-sudo cmake --build . --target install
+cmake ..
+cmake --build . --target install
 
 git clone --recursive https://github.com/eProsima/Fast-DDS.git -b v2.0.0 ~/FastDDS-2.0.0
 cd ~/FastDDS-2.0.0
