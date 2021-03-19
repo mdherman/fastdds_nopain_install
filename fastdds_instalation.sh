@@ -6,6 +6,8 @@
 
 sudo apt install openjdk-8-jdk -y
 
+sudo update-alternatives --config java
+
 cd ~
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
