@@ -2,23 +2,33 @@
 # Works with: foxy, eloquent
 # ------------------------------------
 
+## Prompt user for distribution.
 echo "Distribution"
 echo "* foxy"
 echo "* eloquent"
 read -p "Select: " ros2_distribution
 echo ""
 
+# Check if valid version.
+if [ $ros2_distribution != 'foxy' ] && [ $ros2_distribution != 'eloquent' ]
+then 
+    echo "Distribution invalid: $ros2_distribution"
+    exit 0
+fi
 
+# Create ws directiory.
 mkdir -p ~/px4_ros_com_ros2/src
 
+# Clone PX4 repos.
 git clone https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com
 git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 
 cd ~/px4_ros_com_ros2
 
-
+# Rosdep update
 rosdep update --include-eol-distros
 
+# Source ROS 2 environment and check pakcages..
 if [ $ros2_distribution == 'eloquent' ] 
 then 
   source /opt/ros/eloquent/setup.bash 
@@ -31,4 +41,5 @@ then
   rosdep install -i --from-path src --rosdistro foxy -y
 fi
 
+# Build packages
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --symlink-install
