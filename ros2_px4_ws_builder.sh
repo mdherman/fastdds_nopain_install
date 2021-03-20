@@ -41,5 +41,8 @@ then
   rosdep install -i --from-path src --rosdistro foxy -y
 fi
 
+sudo pip3 install packaging
+export MAKEFLAGS="-j 3"
+
 # Build packages
-colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --symlink-install
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --executor sequential --symlink-install --event-handlers console_direct+
