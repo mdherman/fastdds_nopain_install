@@ -25,7 +25,7 @@ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 
 cd ~/px4_ros_com_ros2
 
-# Rosdep update
+# Rosdep update.
 rosdep update --include-eol-distros
 
 # Source ROS 2 environment and check pakcages..
@@ -41,8 +41,13 @@ then
   rosdep install -i --from-path src --rosdistro foxy -y
 fi
 
+# Install packaging.
 sudo pip3 install packaging
-export MAKEFLAGS="-j 3"
 
-# Build packages
+# Set one avaliable core for system when running colcon build.
+cpu=$(nproc)
+cpu_in_use="$(($cpu-1))"
+export MAKEFLAGS="-j $cpu_in_use"
+
+# Build packages.
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --executor sequential --symlink-install --event-handlers console_direct+
