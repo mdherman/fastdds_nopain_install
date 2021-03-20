@@ -24,5 +24,4 @@ if [ $ros2_distribution == 'foxy' ]
 then source /opt/ros/foxy/setup.bash
 fi
 
-source /opt/ros/eloquent/setup.bash
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --symlink-install
