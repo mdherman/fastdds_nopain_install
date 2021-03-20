@@ -24,4 +24,7 @@ if [ $ros2_distribution == 'foxy' ]
 then source /opt/ros/foxy/setup.bash
 fi
 
+rosdep update --include-eol-distros
+rosdep install -i --from-path src --rosdistro eloquent -y
+
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --symlink-install
