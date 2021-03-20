@@ -1,1 +1,1 @@
-"# px4-ros2_bridge_nopain_installation" 
+Shell scrips for installing FastDDS and creating PX4 ROS2 ws.
