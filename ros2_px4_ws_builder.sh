@@ -16,15 +16,19 @@ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 
 cd ~/px4_ros_com_ros2
 
+
+rosdep update --include-eol-distros
+
 if [ $ros2_distribution == 'eloquent' ] 
-then source /opt/ros/eloquent/setup.bash
+then 
+  source /opt/ros/eloquent/setup.bash 
+  rosdep install -i --from-path src --rosdistro eloquent -y
 fi
 
 if [ $ros2_distribution == 'foxy' ]
-then source /opt/ros/foxy/setup.bash
+then 
+  source /opt/ros/foxy/setup.bash 
+  rosdep install -i --from-path src --rosdistro foxy -y
 fi
-
-rosdep update --include-eol-distros
-rosdep install -i --from-path src --rosdistro eloquent -y
 
 colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELWITHDEBINFO --symlink-install
