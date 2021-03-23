@@ -42,7 +42,7 @@ then
 fi
 
 # Install packaging.
-sudo pip3 install packaging
+sudo pip3 install packaging -y
 
 # Set one avaliable core for system when running colcon build.
 cpu=$(nproc)
