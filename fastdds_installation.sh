@@ -7,6 +7,9 @@ sudo apt install openjdk-8-jdk -y
 # Change JAVA JDK version to JDK 8.
 sudo update-alternatives --config java
 
+
+sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+
 # Install ZIP.
 sudo apt install zip -y
 
