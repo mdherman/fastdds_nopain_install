@@ -25,8 +25,22 @@ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 
 cd ~/px4_ros_com_ros2
 
-# Rosdep update.
-sudo pip3 install -U rosdep
+# Install some neat dependencies
+sudo apt update && sudo apt install -y \
+    python3-rosdep \
+    build-essential \
+    cmake \
+    python3-colcon-common-extensions \
+    python3-flake8 \
+    python3-pip \
+    python3-pytest-cov \
+    python3-setuptools \
+    python3-vcstool \
+    wget \
+    
+
+
+# Rosdep init and update.
 sudo rosdep init
 rosdep update --include-eol-distros
 
