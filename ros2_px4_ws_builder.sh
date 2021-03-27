@@ -26,6 +26,8 @@ git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
 cd ~/px4_ros_com_ros2
 
 # Rosdep update.
+sudo pip3 install -U rosdep
+sudo rosdep init
 rosdep update --include-eol-distros
 
 # Source ROS 2 environment and check pakcages..
